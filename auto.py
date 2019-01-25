@@ -62,7 +62,7 @@ def auto_reply(msg):
         for i in range(len(a)):
             result_F = (str(i + 1) + '.' + a[i])
             with open('/root/itchat/text_new.txt',"a") as fw:
-                result_F = result_F.strip().strip("。").strip("，").strip(",").strip("；")
+                result_F = result_F.strip().strip("。").strip("！").strip(",").strip("；")
                 result_F = result_F + "。"
                 fw.write(result_F)
                 fw.write('\n')

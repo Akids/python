@@ -60,16 +60,17 @@ class MyFrame(MyFrame1):
 
         BRange = sheet1.range((add+1, 2), (sheet1_row, 2))
         for i in Name:
-            column2 = column1
+            #column2 = column1
             for B in BRange:
                 if B.value == i:
                     v = B.end('left').expand('right').value
+                    dday = int(v[0][-2:])
                     if v[s_add-1] == '--':
                         if v[s_add] <= '09:00' and v[s_add] != '--':
-                            self.sheet.range(d[i], column2).value = '√'
+                            self.sheet.range(d[i], (3 + dday)).value = '√'
                         if v[s_add+1] >= '17:00' and v[s_add+1] != '--':
-                            self.sheet.range(d[i] + 1, column2).value = '√'
-                    column2 = column2 - 1
+                            self.sheet.range(d[i] + 1, (3 + dday)).value = '√'
+                    #column2 = column2 - 1
         sheet2 = self.wb.sheets[2]
         #查找表头地址
         for t in sheet2.range("A1:A10"):
