@@ -93,12 +93,12 @@ class MyFrame(MyFrame1):
                 if C.value ==i:
                     v = C.end('left').expand('right').value
                     s2_data = int(v[0][-2:])
-                    if v[s2_add[0]-1] != '--':
+                    if len(v) > s2_add[0] and v[s2_add[0]-1] != '--':
                         if v[s2_add[0]-1] <= '09:00':
                             self.sheet.range(d[i],(3 + s2_data)).value = "☆"
                         if v[s2_add[0]-1] >= '17:00':
                             self.sheet.range((d[i] +1 ),(3 + s2_data)).value = "☆"
-                    if v[s2_add[1]-1] != '--':
+                    if len(v) > s2_add[0] and v[s2_add[1]-1] != '--':
                         if v[s2_add[1]-1] <= '09:00':
                             self.sheet.range(d[i],(3 + s2_data)).value = "☆"
                         if v[s2_add[1]-1] >= '17:00':
