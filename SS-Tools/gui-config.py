@@ -7,7 +7,7 @@ import qrcode, base64
 html=etree.HTML(text,etree.HTMLParser())
 result = html.xpath('//td/text()')
 
-file_path = r'E:\Shadowsocks-4.1.4'
+file_path = r'D:\Program Files\Shadowsocks'
 
 with open(file_path + r'\gui-config.json', "r", encoding="utf-8") as f:
     data = json.load(f)
@@ -18,8 +18,8 @@ for i in range(len(result)):
         dict ={}
         dict['server'] = result[i]
         dict['server_port'] = int(result[i + 1])
-        dict['password'] = result[i + 3]
-        dict['method'] = result[i + 2]
+        dict['password'] = result[i + 2]
+        dict['method'] = result[i + 3]
         dict['plugin'] = ''
         dict['plugin_opts'] = ''
         dict['plugin_args'] = ''
@@ -33,6 +33,7 @@ json_data = json.dumps(data, indent=4, separators=(',', ': ')) #sort_keys=True,�
 #备份json
 if not os.path.exists(file_path + r'\Backup'):
     os.mkdir(file_path + r'\Backup')
+
 #移动文件
 shutil.move(file_path + r'\gui-config.json', file_path + r'\Backup\gui-config' + '-' + str(int(time.time())) + ' ' + '.json')
 
@@ -62,7 +63,7 @@ for i in range(len(result)):
         dict['ota'] = bool(0)
         dict['file'] = ''
         #dict['uuid'] = ''
-        dict['method'] = result[i + 2]
+        dict['method'] = result[i + 3]
         dict['flag'] = result[i + 5]
         dict['updated'] = time.time()
         dict['obfs'] = 'none'
@@ -73,7 +74,7 @@ for i in range(len(result)):
         dict['port'] = result[i + 1]
         dict['selected'] = bool(0)
         dict['proto'] = 'none'
-        dict['password'] = result[i + 3]
+        dict['password'] = result[i + 2]
         dict['data'] = ''
         dict['ping'] = -1
         dict['created'] = time.time()
@@ -82,6 +83,7 @@ for i in range(len(result)):
 #备份Shadowrocket json
 if not os.path.exists(file_path + r'\Backup'):
     os.mkdir(file_path + r'\Backup')
+
 #移动文件
 shutil.move(file_path + r'\Shadowrocket.json', file_path + r'\Backup\Shadowrocket' + '-' + str(int(time.time())) + ' ' + '.json')
 
