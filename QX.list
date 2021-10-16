@@ -1,4 +1,4 @@
 # > Btdigg
 DOMAIN,btdig.com,PROXY
 # > Coinmarketcap
-DOMAIN-SUFFIX,coinmarketcap.com,PROXY
+DOMAIN,coinmarketcap.com,PROXY
