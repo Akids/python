@@ -4,4 +4,4 @@ DOMAIN,btdig.com,PROXY
 DOMAIN,coinmarketcap.com,PROXY
 DOMAIN,github.dev,PROXY
 DOMAIN,rarbgprx.org,PROXY
-HOST-KEYWORD,poe.com,PROXY
+DOMAIN-SUFFIX,poe.com,PROXY
